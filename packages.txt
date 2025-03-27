@@ -1,0 +1,6 @@
+flutter_riverpod
+hooks_riverpod
+riverpod_test
+talker_riverpod_logger
+reflect_ui
+fluentui_system_icons
