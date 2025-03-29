@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:profile/view/UI/splash_view.dart';
 
-import '../../view/UI/home_view.dart';
+import '../../view/UI/intro_view.dart';
+import '../../view/UI/projects_view.dart';
+import '../../view/UI/profile.dart';
 
 class RouterApp{
   static const String home = '/home';
+  static const String intro = '/intro';
+  static const String projects = '/projects';
+  static const String aboute = '/aboute';
   static const String splash = '/splash';
   
   RouterApp._();
@@ -15,7 +20,11 @@ class RouterApp{
   Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
       case home:
-        return MaterialPageRoute(builder: (_) => HomeView());
+        return MaterialPageRoute(builder: (_) => PortfolioScreen());
+      case intro:
+        return MaterialPageRoute(builder: (_) => IntroView());
+      case projects:
+        return MaterialPageRoute(builder: (_) => ProjectsView());
       case splash:
         return MaterialPageRoute(builder: (_) => SplashView());
       default:
