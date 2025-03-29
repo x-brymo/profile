@@ -34,6 +34,7 @@ void main()async{
     child: MyApp(),
   ));
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -47,9 +48,53 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
+      onGenerateTitle: (context) => 'Resume Builder',
+      navigatorObservers: [
+         CustomNavigatorObserver(),
+        // FirebaseAnalyticsObserver(analytics: analytics),
+        // FirebaseCrashlyticsObserver(crashlytics: crashlytics),
+        // FirebasePerformanceObserver(performance: performance),
+        // FirebaseRemoteConfigObserver(remoteConfig: remoteConfig),
+        // FirebaseMessagingObserver(messaging: messaging),
+        // FirebaseDynamicLinksObserver(dynamicLinks: dynamicLinks),
+        // FirebaseInAppMessagingObserver(inAppMessaging: inAppMessaging),                            
+        // FirebaseAppCheckObserver(appCheck: appCheck),
+        // FirebaseMLKitObserver(mlKit: mlKit),
+        // FirebaseStorageObserver(storage: storage),
+        // FirebaseFirestoreObserver(firestore: firestore),
+        // FirebaseAuthObserver(auth: auth),
+        
+      ],
       home: SplashView(),
       onGenerateRoute: RouterApp().generateRoute,
       initialRoute: RouterApp.splash,
     );
+  }
+}
+
+
+class CustomNavigatorObserver extends NavigatorObserver {
+  @override
+  void didPush(Route route, Route? previousRoute) {
+    super.didPush(route, previousRoute);
+    print('Navigated to ${route.settings.name}');
+  }
+
+  @override
+  void didPop(Route route, Route? previousRoute) {
+    super.didPop(route, previousRoute);
+    print('Popped ${route.settings.name}');
+  }
+
+  @override
+  void didReplace({Route? newRoute, Route? oldRoute}) {
+    super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
+    print('Replaced ${oldRoute?.settings.name} with ${newRoute?.settings.name}');
+  }
+
+  @override
+  void didRemove(Route route, Route? previousRoute) {
+    super.didRemove(route, previousRoute);
+    print('Removed ${route.settings.name}');
   }
 }
