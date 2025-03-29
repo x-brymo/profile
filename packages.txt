@@ -1,6 +1,15 @@
-flutter_riverpod
-hooks_riverpod
-riverpod_test
-talker_riverpod_logger
-reflect_ui
-fluentui_system_icons
+dependencies
+ flutter_riverpod
+ hooks_riverpod
+ riverpod_test
+ talker_riverpod_logger
+ reflect_ui
+ fluentui_system_icons
+ cached_network_image
+ animated_text_kit
+ riverpod_annotation
+
+dev_dependencies:
+  build_runner
+  riverpod_generator
+    

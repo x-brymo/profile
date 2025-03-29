@@ -23,7 +23,7 @@ class _SplashViewState extends ConsumerState<SplashView> with SingleTickerProvid
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
     Timer(_duration, () {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/intro');
     });
   }
   @override
