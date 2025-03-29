@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/controllers/home/image_controller.dart';
@@ -22,7 +23,7 @@ class PortfolioScreen extends ConsumerWidget {
             .currentImageUrl;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+     // backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -41,7 +42,7 @@ class PortfolioScreen extends ConsumerWidget {
                   child: Text(
                     'HafezCode.',
                     style: TextStyle(
-                      color: Colors.white,
+                       
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -50,7 +51,7 @@ class PortfolioScreen extends ConsumerWidget {
                 Positioned(
                   top: 50,
                   right: 20,
-                  child: Icon(Icons.menu, color: Colors.white),
+                  child: Icon(Icons.menu,  ),
                 ),
                 Positioned(
                   bottom: 40,
@@ -60,19 +61,19 @@ class PortfolioScreen extends ConsumerWidget {
                     children: [
                       Text(
                         'Hello I am',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        style: TextStyle(  fontSize: 18),
                       ),
                       Text(
                         'Mahmoud Hafez Eltarqi',
                         style: TextStyle(
-                          color: Colors.white,
+                           
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         'UX Designer & Developer',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle( fontSize: 16),
                       ),
                       SizedBox(height: 10),
                       ElevatedButton(
@@ -96,7 +97,7 @@ class PortfolioScreen extends ConsumerWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                 
                 borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
               ),
               child: Column(
@@ -131,6 +132,19 @@ class PortfolioScreen extends ConsumerWidget {
                         icon: Icons.supervisor_account,
                         title: 'Client Relations',
                         color: Colors.deepOrange,
+                      ),
+                      SkillCard(
+                        icon: Icons.code,
+                        title: 'Packages Flutter & Dart',
+                        color: Colors.deepOrange,
+                      ),
+                      SkillCard(
+                        icon: FontAwesomeIcons.productHunt,
+                        title: 'Plugins CLI & API',
+                        color: Colors.greenAccent,
+                        onTap: () {
+                          // Handle tap event
+                        },
                       ),
                     ],
                   ),
@@ -168,12 +182,13 @@ class SkillCard extends StatelessWidget {
   final IconData icon;
   final String title;
   final Color color;
+  final VoidCallback? onTap;
 
   const SkillCard({
     super.key,
     required this.icon,
     required this.title,
-    required this.color,
+    required this.color, this.onTap,
   });
 
   @override
@@ -189,7 +204,9 @@ class SkillCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 30, color: color),
+            GestureDetector(
+              onTap: onTap,
+              child: Icon(icon, size: 30, color: color)),
             SizedBox(height: 5),
             Text(title, style: TextStyle(fontSize: 12)),
           ],

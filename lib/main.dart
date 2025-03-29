@@ -3,14 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:talker_riverpod_logger/talker_riverpod_logger_observer.dart';
 import 'package:talker_riverpod_logger/talker_riverpod_logger_settings.dart';
 
-import 'app.dart';
 
-import 'package:code_text_field/code_text_field.dart';
-import 'package:flutter_highlight/themes/github.dart';
-import 'package:highlight/languages/dart.dart';
-import 'package:flutter/services.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:flutter_eval/flutter_eval.dart';
+
+import 'core/export.dart';
+import 'view/UI/splash_view.dart';
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();

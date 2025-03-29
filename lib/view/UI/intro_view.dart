@@ -12,8 +12,11 @@ class IntroView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final imagePro = ref.watch(changeImageByTime);
     final imageUrl = ref.read(changeImageByTime.notifier).currentImageUrl;
+    double sizeIcon = 25;
+     double size = 40;
     return Scaffold(
      //backgroundColor: Colors.black,
+     
       body: Column(
         children: [
           Expanded(
@@ -49,11 +52,13 @@ class IntroView extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text('Hello I am', style: TextStyle( fontSize: 18, color: Color(0xffffffff),)),
-                      Text('Mahmoud Hafez Eltarqi', style: TextStyle( color: Color(0xffffffff), fontSize: 32, fontWeight: FontWeight.bold)),
-                      Text('UX Designer & Developer', style: TextStyle(  color: Color(0xffffffff),fontSize: 16)),
+                      Text('Mahmoud Hafez Eltarqi', style: TextStyle( color: Color(0xffffffff), fontSize: 26, fontWeight: FontWeight.bold)),
+                      Text('Front-end & Developer Flutter', style: TextStyle(  color: Color(0xffffffff),fontSize: 16)),
                       SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           disabledBackgroundColor: Colors.black,
@@ -70,48 +75,48 @@ class IntroView extends ConsumerWidget {
                             icon: FontAwesomeIcons.x,
                             iconColor: Colors.black,
                             color: Colors.white,
-                            size: 30,
-                            sizeIcon: 15,
+                            size: size,
+                            sizeIcon: sizeIcon,
                             url: "https://hafezcode.vercel.app",
                           ),
                           ButtonSocial(
                             icon: FontAwesomeIcons.facebook,
                             iconColor: Colors.white,
                             color: Colors.blueAccent,
-                            size: 30,
-                            sizeIcon: 15,
+                            size: size,
+                            sizeIcon: sizeIcon,
                             url: "https://hafezcode.vercel.app",
                           ),
                           ButtonSocial(
                             icon: FontAwesomeIcons.instagram,
                             iconColor: Colors.deepOrange,
                             color: Colors.white,
-                            size: 30,
-                            sizeIcon: 15,
+                            size: size,
+                            sizeIcon: sizeIcon,
                             url: "https://hafezcode.vercel.app",
                           ),
                           ButtonSocial(
                             icon: FontAwesomeIcons.linkedinIn,
                             iconColor: Colors.lightBlue,
                             color: Colors.white,
-                            size: 30,
-                            sizeIcon: 15,
+                            size: size,
+                            sizeIcon: sizeIcon,
                             url: "https://hafezcode.vercel.app",
                           ),
                           ButtonSocial(
                             icon: FontAwesomeIcons.telegram,
                             iconColor: Colors.lightBlue,
                             color: Colors.white,
-                            size: 30,
-                            sizeIcon: 15,
+                            size: size,
+                            sizeIcon: sizeIcon,
                             url: "https://hafezcode.vercel.app",
                           ),
                           ButtonSocial(
                             icon: FontAwesomeIcons.mailForward,
                             iconColor: Colors.white,
                             color: Colors.black,
-                            size: 30,
-                            sizeIcon: 15,
+                            size: size,
+                            sizeIcon: sizeIcon,
                             url: "https://hafezcode.vercel.app",
                           ),
                          

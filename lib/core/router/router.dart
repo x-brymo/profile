@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/view/UI/splash_view.dart';
 
+import '../../view/UI/code/editor_code.dart';
 import '../../view/UI/intro_view.dart';
 import '../../view/UI/projects_view.dart';
 import '../../view/UI/profile.dart';
@@ -11,6 +12,7 @@ class RouterApp{
   static const String projects = '/projects';
   static const String aboute = '/aboute';
   static const String splash = '/splash';
+  static const String editor = '/editor';
   
   RouterApp._();
   RouterApp._init();
@@ -27,6 +29,8 @@ class RouterApp{
         return MaterialPageRoute(builder: (_) => ProjectsView());
       case splash:
         return MaterialPageRoute(builder: (_) => SplashView());
+      case editor:
+        return MaterialPageRoute(builder: (_) => CodeEditorScreen());
       default:
         return MaterialPageRoute(builder: (_) => Scaffold(
           body: Center(
