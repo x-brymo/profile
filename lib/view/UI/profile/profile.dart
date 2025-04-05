@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../domain/controllers/home/image_controller.dart';
+import '../../../domain/controllers/home/image_controller.dart';
+import '../CV/manger_cv.dart';
+import '../apps/install_apps.dart';
+import '../cli/manger_cli.dart';
+import '../job/test.dart';
+import '../packages/manger_packages.dart';
 
 class PortfolioScreen extends ConsumerWidget {
   const PortfolioScreen({super.key});
@@ -14,16 +19,11 @@ class PortfolioScreen extends ConsumerWidget {
         "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExajNncHJmZmp0OXA2dzRrNThia2l0eGlmdDc4dGwzMDVubmlzc2ZmYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RyoSZlTlU5OvBu088O/giphy.gif";
     String imageUrl =
         "https://images.hdqwalls.com/download/square-glitch-chaos-banner-abstract-4k-im-3840x2160.jpg";
-    final imageIndex = ref.watch(
-      changeImageByTime,
-    ); 
-    final imageUrls =
-        ref
-            .read(changeImageByTime.notifier)
-            .currentImageUrl;
+    final imageIndex = ref.watch(changeImageByTime);
+    final imageUrls = ref.read(changeImageByTime.notifier).currentImageUrl;
 
     return Scaffold(
-     // backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -41,51 +41,68 @@ class PortfolioScreen extends ConsumerWidget {
                   left: 20,
                   child: Text(
                     'HafezCode.',
-                    style: TextStyle(
-                       
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ),
-                Positioned(
-                  top: 50,
-                  right: 20,
-                  child: Icon(Icons.menu,  ),
-                ),
+                Positioned(top: 50, right: 20, child: Icon(Icons.menu)),
                 Positioned(
                   bottom: 40,
                   left: 20,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Hello I am',
-                        style: TextStyle(  fontSize: 18),
-                      ),
+                      Text('Hello I am', style: TextStyle(fontSize: 18)),
                       Text(
                         'Mahmoud Hafez Eltarqi',
                         style: TextStyle(
-                           
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         'UX Designer & Developer',
-                        style: TextStyle( fontSize: 16),
+                        style: TextStyle(fontSize: 16),
                       ),
                       SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          disabledBackgroundColor: Colors.black,
-                        ),
-                        child: Text(
-                          'Hire Me',
-                          style: TextStyle(color: Colors.black),
-                        ),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                ),
+                              );                                     
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              disabledBackgroundColor: Colors.black,
+                            ),
+                            child: Text(
+                              'Hire Me',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MangerCV(),
+                                ),
+                              );                                     
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              disabledBackgroundColor: Colors.black,
+                            ),
+                            child: Text(
+                              'Check CV',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -97,7 +114,6 @@ class PortfolioScreen extends ConsumerWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 20),
               decoration: BoxDecoration(
-                 
                 borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
               ),
               child: Column(
@@ -123,27 +139,76 @@ class PortfolioScreen extends ConsumerWidget {
                     mainAxisSpacing: 10,
                     physics: NeverScrollableScrollPhysics(),
                     children: [
-                      SkillCard(icon: Icons.lightbulb, title: 'Concepting',color: Colors.amberAccent,),
-                      SkillCard(icon: Icons.design_services, title: 'UI & UX',color: Colors.blueAccent,),
-                      SkillCard(icon: Icons.brush, title: 'Visual Design',color: Colors.brown,),
-                      SkillCard(icon: Icons.touch_app, title: 'Interaction',color: Colors.deepOrange,),
-                      SkillCard(icon: Icons.analytics, title: 'Analysis',color: Colors.deepPurpleAccent,),
+                      SkillCard(
+                        icon: Icons.lightbulb,
+                        title: 'Concepting',
+                        color: Colors.amberAccent,
+                      ),
+                      SkillCard(
+                        icon: Icons.design_services,
+                        title: 'UI & UX',
+                        color: Colors.blueAccent,
+                      ),
+                      SkillCard(
+                        icon: Icons.brush,
+                        title: 'Visual Design',
+                        color: Colors.brown,
+                      ),
+                      SkillCard(
+                        icon: Icons.touch_app,
+                        title: 'Interaction',
+                        color: Colors.deepOrange,
+                      ),
+                      SkillCard(
+                        icon: Icons.analytics,
+                        title: 'Analysis',
+                        color: Colors.deepPurpleAccent,
+                      ),
                       SkillCard(
                         icon: Icons.supervisor_account,
-                        title: 'Client Relations',
+                        title:   'Installing Apps',   // 'Client Relations',
                         color: Colors.deepOrange,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AppStoreHomePage(),
+                            ),
+                          );
+                        },
                       ),
                       SkillCard(
                         icon: Icons.code,
                         title: 'Packages Flutter & Dart',
                         color: Colors.deepOrange,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PackageManagerScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SkillCard(
                         icon: FontAwesomeIcons.productHunt,
                         title: 'Plugins CLI & API',
                         color: Colors.greenAccent,
                         onTap: () {
-                          // Handle tap event
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MangerCLI(),
+                            ),
+                          );
+                        },
+                      ),
+                      SkillCard(
+                        icon: FontAwesomeIcons.codeBranch,
+                        title: 'Editor',
+                        color: Colors.deepPurpleAccent,
+                        onTap: () {
+                          Navigator.pushNamed(context, '/editor');
                         },
                       ),
                     ],
@@ -188,7 +253,8 @@ class SkillCard extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    required this.color, this.onTap,
+    required this.color,
+    this.onTap,
   });
 
   @override
@@ -206,7 +272,8 @@ class SkillCard extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: onTap,
-              child: Icon(icon, size: 30, color: color)),
+              child: Icon(icon, size: 30, color: color),
+            ),
             SizedBox(height: 5),
             Text(title, style: TextStyle(fontSize: 12)),
           ],

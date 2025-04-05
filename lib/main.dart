@@ -6,7 +6,7 @@ import 'package:talker_riverpod_logger/talker_riverpod_logger_settings.dart';
 
 
 import 'core/export.dart';
-import 'view/UI/splash_view.dart';
+import 'view/UI/intro/splash_view.dart';
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();

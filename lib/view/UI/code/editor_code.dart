@@ -5,7 +5,6 @@ import 'package:flutter_highlight/themes/monokai-sublime.dart';
 import 'package:highlight/languages/dart.dart';
 import 'package:share_plus/share_plus.dart';
 // Import flutter_eval properly based on their documentation
-import 'package:flutter_eval/flutter_eval.dart';
 
 class CodeEditorScreen extends StatefulWidget {
   const CodeEditorScreen({super.key});

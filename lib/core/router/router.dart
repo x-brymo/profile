@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:profile/view/UI/splash_view.dart';
+import 'package:profile/view/UI/intro/splash_view.dart';
 
 import '../../view/UI/code/editor_code.dart';
-import '../../view/UI/intro_view.dart';
-import '../../view/UI/projects_view.dart';
-import '../../view/UI/profile.dart';
+import '../../view/UI/intro/intro_view.dart';
+import '../../view/UI/mix/projects_view.dart';
+import '../../view/UI/profile/profile.dart';
 
 class RouterApp{
   static const String home = '/home';

@@ -11,7 +11,7 @@ class SplashView extends ConsumerStatefulWidget {
   ConsumerState<SplashView> createState() => _SplashViewState();
 }
 class _SplashViewState extends ConsumerState<SplashView> with SingleTickerProviderStateMixin {
-  final Duration _duration = const Duration(seconds: 3);
+  final Duration _duration = const Duration(seconds: 7);
   late AnimationController _controller;
   late Animation<double> _animation;
   @override
