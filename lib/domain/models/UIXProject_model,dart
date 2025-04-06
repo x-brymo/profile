@@ -1,0 +1,15 @@
+class UIXProject{
+  final String title;
+  final String category;
+  final String description;
+  final String previewImageUrl;
+  final String downloadUrl;
+
+  UIXProject({
+    required this.title,
+    required this.category,
+    required this.description,
+    required this.previewImageUrl,
+    required this.downloadUrl,
+  });
+}
