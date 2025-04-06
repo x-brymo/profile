@@ -2,9 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:profile/view/UI/UIX/uix.dart';
+import 'package:profile/view/UI/profile/widget/task1.dart';
 
 import '../../../domain/controllers/home/image_controller.dart';
 import '../CV/manger_cv.dart';
+import '../UIX/provider/provider.dart';
 import '../apps/install_apps.dart';
 import '../cli/manger_cli.dart';
 import '../job/test.dart';
@@ -21,7 +24,7 @@ class PortfolioScreen extends ConsumerWidget {
         "https://images.hdqwalls.com/download/square-glitch-chaos-banner-abstract-4k-im-3840x2160.jpg";
     final imageIndex = ref.watch(changeImageByTime);
     final imageUrls = ref.read(changeImageByTime.notifier).currentImageUrl;
-
+      final projectsUIX = ref.watch(projectsCountProvider);
     return Scaffold(
       // backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -121,9 +124,9 @@ class PortfolioScreen extends ConsumerWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      StatsItem(title: 'Projects', value: '42'),
-                      StatsItem(title: 'Clients', value: '712'),
-                      StatsItem(title: 'Messages', value: '92'),
+                      StatsItem(title: 'Projects UIX', value: '${projectsUIX.length}'),
+                      StatsItem(title: 'Projects Flutter', value: '${projectsUIX.entries.first.value}'),
+                      StatsItem(title: 'Projects Web', value: '${projectsUIX.entries.last.value}'),
                     ],
                   ),
                   SizedBox(height: 20),
@@ -143,11 +146,27 @@ class PortfolioScreen extends ConsumerWidget {
                         icon: Icons.lightbulb,
                         title: 'Concepting',
                         color: Colors.amberAccent,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Task1(),
+                            ),
+                          );
+                        },
                       ),
                       SkillCard(
                         icon: Icons.design_services,
                         title: 'UI & UX',
                         color: Colors.blueAccent,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UIXScreen(),
+                            ),
+                          );
+                        },
                       ),
                       SkillCard(
                         icon: Icons.brush,
