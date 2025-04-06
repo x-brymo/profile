@@ -26,7 +26,7 @@ void main()async{
   ),
 )],
     overrides: [],
-
+ //
     child: MyApp(),
   ));
 }
@@ -53,13 +53,12 @@ class MyApp extends StatelessWidget {
         // FirebaseRemoteConfigObserver(remoteConfig: remoteConfig),
         // FirebaseMessagingObserver(messaging: messaging),
         // FirebaseDynamicLinksObserver(dynamicLinks: dynamicLinks),
-        // FirebaseInAppMessagingObserver(inAppMessaging: inAppMessaging),                            
+        // FirebaseInAppMessagingObserver(inAppMessaging: inAppMessaging),
         // FirebaseAppCheckObserver(appCheck: appCheck),
         // FirebaseMLKitObserver(mlKit: mlKit),
         // FirebaseStorageObserver(storage: storage),
         // FirebaseFirestoreObserver(firestore: firestore),
         // FirebaseAuthObserver(auth: auth),
-        
       ],
       home: SplashView(),
       onGenerateRoute: RouterApp().generateRoute,
