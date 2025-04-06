@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:profile/domain/models/UIXProject_model,dart';
+import 'package:profile/domain/models/projects_model.dart';
 
 class ProjectDetailsPage extends ConsumerStatefulWidget {
   final UIXProject project;

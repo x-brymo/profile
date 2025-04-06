@@ -6,7 +6,7 @@
   ];
   idx.extensions = [
     
-     
+                  
   ];
   idx.previews = {
     previews = {
